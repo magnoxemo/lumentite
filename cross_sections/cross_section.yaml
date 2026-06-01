@@ -1,0 +1,21 @@
+cross_sections:
+  num_groups: 1
+  materials:
+    moderator:
+      sigma_t: [0.3264]
+      sigma_a: [0.097920]
+      sigma_s: [0.228480]
+      sigma_f: [0.0]
+      nu:      [0.0]
+    fuel:
+      sigma_t: [0.3264]
+      sigma_a: [0.078336]
+      sigma_s: [0.248064]
+      sigma_f: [0.06528]
+      nu:      [2.7]
+    absorber:
+      sigma_t: [0.3264]
+      sigma_a: [0.321760]
+      sigma_s: [0.004640]
+      sigma_f: [0.0]
+      nu:      [0.0]

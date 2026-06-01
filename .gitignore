@@ -1,0 +1,8 @@
+*.xml
+*.h5
+*.out
+*.png
+
+models/__pycache__/*
+models/Banerjee/__pycache__/
+*.idea/
