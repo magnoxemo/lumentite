@@ -1,7 +1,11 @@
 import sys
 sys.path.append("../../")
 
-
+"""
+Credit where credit is due:
+This model is from Kaushik Banerjee's PhD thesis, "Kernel Density Estimator Methods for Monte Carlo Radiation Transport"
+url: https://www.proquest.com/dissertations-theses/kernel-density-estimator-methods-monte-carlo/docview/275815580/se-2
+"""
 import argparse
 from pathlib import Path
 import openmc
@@ -38,10 +42,10 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--xs", type=Path, default=Path("../../cross_sections/cross_section.yaml"))
     parser.add_argument("--outdir", type=Path, default=Path("."))
-    parser.add_argument("--batches", type=int, default=200)
+    parser.add_argument("--batches", type=int, default=100)
     parser.add_argument("--inactive", type=int, default=50)
-    parser.add_argument("--particles", type=int, default=50_000)
-    parser.add_argument("--mesh-cells", type=int, default=200)
+    parser.add_argument("--particles", type=int, default=100_000)
+    parser.add_argument("--mesh-cells", type=int, default=1680)
     args = parser.parse_args()
 
     build_model(xs_yaml=args.xs, output_dir=args.outdir, batches=args.batches, inactive=args.inactive, particles=args.particles, mesh_cells=args.mesh_cells, )

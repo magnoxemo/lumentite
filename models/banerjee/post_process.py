@@ -35,20 +35,20 @@ def load_mesh_tally(statepoint_path: Path):
 def plot(statepoint_path: Path, output_path: Path) -> None:
     x, flux, fission, keff = load_mesh_tally(statepoint_path)
 
-    flux = flux
-    fission = fission
-
+    dx = x[1] - x[0]
+    flux = flux / dx
+    fission = fission / dx
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 6), sharex=True)
 
     shade_materials(ax1)
     ax1.plot(x, flux, color="#1f3a93", lw=1.8)
-    ax1.set_ylabel("normalized flux")
-    ax1.set_title(f"Banerjee 1-D slab   k_eff = {keff.n:.5f} ± {keff.s:.5f}")
+    ax1.set_ylabel("flux")
+    ax1.set_title(f"Banerjee 1-D slab   k_eff = {keff.n: .5f} ± {keff.s: .5f}")
     ax1.grid(alpha=0.3)
 
     shade_materials(ax2)
     ax2.plot(x, fission, color="#b8312f", lw=1.8)
-    ax2.set_ylabel("normalized fission rate")
+    ax2.set_ylabel("fission rate")
     ax2.set_xlabel("x (cm)")
     ax2.grid(alpha=0.3)
 
