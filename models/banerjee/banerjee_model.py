@@ -15,8 +15,7 @@ from models.utilities import build_mgxs_library, build_openmc_materials, load_ya
 from properties import *
 
 
-def build_model(xs_yaml: Path, output_dir: Path, batches: int, inactive: int, particles: int, mesh_cells: int,
-                transverse_half_width: float = 0.5) -> openmc.Model:
+def build_model(xs_yaml: Path, output_dir: Path, batches: int, inactive: int, particles: int, mesh_cells: int, transverse_half_width: float = 0.5) -> openmc.Model:
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
