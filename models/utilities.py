@@ -46,6 +46,11 @@ def _make_xsdata(name: str, xs: dict, groups: mgxs.EnergyGroups) -> openmc.XSdat
         xsdata.set_fission(sig_f)
         xsdata.set_nu_fission(nu * sig_f)
         xsdata.set_chi(chi)
+        # kappa-fission = (energy released per fission) * sigma_f, in eV/cm. Needed by anything that
+        # normalizes by a heating-like score (e.g. Cardinal's source_rate_normalization).
+        if "q_fission_eV" in xs:
+            q = np.array(xs["q_fission_eV"], dtype=float)
+            xsdata.set_kappa_fission(q * sig_f)
 
     return xsdata
 

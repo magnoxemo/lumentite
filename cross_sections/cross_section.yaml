@@ -13,6 +13,7 @@ cross_sections:
       sigma_s: [0.248064]
       sigma_f: [0.06528]
       nu:      [2.7]
+      q_fission_eV: [2.0e8]   # energy released per fission (200 MeV); kappa-fission = q * sigma_f
     absorber:
       sigma_t: [0.3264]
       sigma_a: [0.321760]
