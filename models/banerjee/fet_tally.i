@@ -2,7 +2,7 @@
   [Tallies]
     [fet_mesh_tally]
       type = FETMeshTally
-      order = 3
+      order = 2
       score = 'flux kappa_fission'
       name = 'fet_flux fet_kappa_fission'
       normalize_by_global_tally = false
